@@ -1,0 +1,29 @@
+{% extends 'Capuchino/padre.html' %}
+{% load static %}
+
+
+{% block edit %}
+{% static 'Capuchino/css/styles.css' %}
+{% endblock%}
+
+{% block pestaña %}
+Editar_usuario
+{% endblock %}
+
+{% block titulo %}
+<a class="btn btn-secondary"> <h1>EDITANDO USUARIO: {{ nombreusuario }}</h1> </a>
+<h4 style="background-color: red;" align="center"> {{ mensaje }} </h4>
+{% endblock %}
+
+
+{% block contenido_2 %}
+
+    <form action="{% url 'editarPerfil' %}" method="POST"> {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>    
+        <input type="submit" value="Modoficar usuario">
+        
+    </form>
+{% endblock %}
+

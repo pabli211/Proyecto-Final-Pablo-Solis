@@ -1,0 +1,41 @@
+{% extends 'Capuchino/padre.html' %}
+{% load static %}
+
+{% block edit %}
+{% static 'Capuchino/css/styles_rest.css' %}
+{% endblock%}
+
+
+{% block pestaña %}
+Edicion_rest
+{% endblock %}
+
+{% block titulo %}
+<h1><u>EDITANDO RESTAURANT:</u></h1>
+<h3>{{ rests.nombre }} {{ rests.apellido }}</h3>
+
+
+{% endblock %}
+
+{% block contenido_3 %}
+
+{% endblock %}
+
+{% block contenido_2 %}
+
+<h3>EDITAR:</h3>
+<hr>
+<br>
+<form action="{% url 'editarRest' rests.id  %}" method="POST"> {% csrf_token %}
+
+    <table class="table borderless" style="color:white">
+        <h2 style="color:white">{{ form.as_table }}</h2>
+    </table>
+  
+
+    <input type="submit" value="Guardar">
+</form>
+<br>
+<hr>
+
+{% endblock %}

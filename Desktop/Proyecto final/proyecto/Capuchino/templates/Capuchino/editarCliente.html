@@ -1,0 +1,41 @@
+{% extends 'Capuchino/padre.html' %}
+{% load static %}
+
+{% block edit %}
+{% static 'Capuchino/css/styles_usuarios.css' %}
+{% endblock%}
+
+
+{% block pestaña %}
+Edicion_cliente
+{% endblock %}
+
+{% block titulo %}
+<h1><u>EDITANDO CLIENTE:</u></h1>
+<h3>{{ clientes.nombre }} {{ clientes.apellido }}</h3>
+
+
+{% endblock %}
+
+{% block contenido_3 %}
+
+{% endblock %}
+
+{% block contenido_2 %}
+
+<h3>EDITAR:</h3>
+<hr>
+<br>
+<form action="{% url 'editarCliente' clientes.id  %}" method="POST"> {% csrf_token %}
+
+    <table class="table borderless" style="color:white">
+        <h2 style="color:white">{{ form.as_table }}</h2>
+    </table>
+  
+
+    <input type="submit" value="Guardar">
+</form>
+<br>
+<hr>
+
+{% endblock %}

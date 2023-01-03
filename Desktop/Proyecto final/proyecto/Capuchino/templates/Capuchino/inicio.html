@@ -1,0 +1,33 @@
+{% extends 'Capuchino/padre.html' %}
+{% load static %}
+
+
+{% block edit %}
+{% static 'Capuchino/css/styles.css' %}
+{% endblock%}
+
+{% block pestaña %}
+Inicio
+{% endblock %}
+
+{% block titulo %}
+<a class="btn btn-secondary" href={% url 'inicio' %}> <h1>INICIO</h1> </a>
+<h4 style="background-color: green;" align="center"> {{ mensaje }} </h4>
+{% endblock %}
+
+
+{% block contenido_3 %}
+<h1 style='background-color:#1778d2;' align="center">Bienvenido a mi proyecto</h1>
+{% endblock %}
+
+
+{% block contenido_2 %}
+    {% if user.is_authenticated %}
+    <h2>MODIFICAR LA BASE DE DATOS <a href="{% url 'editarBase' %}"><u style="font-weight: 500";>AQUI</u></a></h2>
+    {% else %}
+
+    {% endif %}
+
+
+{% endblock %}
+

@@ -1,0 +1,37 @@
+{% extends 'Capuchino/padre.html' %}
+{% load static %}
+
+
+{% block edit %}
+{% static 'Capuchino/css/styles.css' %}
+{% endblock%}
+
+{% block pestaña %}
+Login
+{% endblock %}
+
+{% block titulo %}
+<a class="btn btn-secondary"> <h1>Login</h1> </a>
+<h4 style="background-color: green;" align="center"> {{ mensaje }} </h4>
+{% endblock %}
+
+
+{% block contenido_3 %}
+<h5 style="color: red; background-color: rgba(181, 122, 34, 0.913);" > {{ mensaje_2 }} </h5>
+{% endblock %}
+
+
+{% block contenido_2 %}
+
+    <form action="{% url 'login' %}" method="POST"> {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>    
+        <input type="submit" value="Ingresar">
+        
+    </form>
+    <h4 style="color: green" > {{ mensaje_1 }} </h4>
+    
+   
+{% endblock %}
+

@@ -1,0 +1,41 @@
+{% extends 'Capuchino/padre.html' %}
+{% load static %}
+
+{% block edit %}
+{% static 'Capuchino/css/styles_rest.css' %}
+{% endblock%}
+
+{% block pestaña %}
+Restaurants
+{% endblock %}
+
+{% block titulo %}
+<a class="btn btn-secondary"> <h1> <u>RESTAURANTS</u> </h1> </a>
+
+{% endblock %}
+
+
+{% block contenido_3 %}
+<h2 style='background-color:#1778d2;'align="center">¿Desea inscribir su restaurant en nuestra WEB?</h2>
+{% endblock %}
+
+{% block contenido_2 %}
+
+<h3>HAGALO AQUI:</h3>
+<hr>
+<br>
+<form action="{% url 'restaurant' %}" method="POST"> {% csrf_token %}
+
+    <table class="table borderless" style="color:white">
+        {{ form.as_table }}
+    </table>
+
+    <input type="submit" value="Guardar">
+</form>
+<br>
+<hr>
+<a class="btn btn-primary" href={% url 'buscarRest' %} >Buscar restaurat</a>
+<br>
+<hr>
+<br>
+{% endblock %}

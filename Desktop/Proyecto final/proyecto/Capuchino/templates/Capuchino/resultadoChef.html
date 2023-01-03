@@ -1,0 +1,37 @@
+{% extends 'Capuchino/padre2.html' %}
+{% load static %}
+
+{% block edit %}
+{% static 'Capuchino/css/styles_chefs.css' %}
+{% endblock%}
+
+{% block pestaña %}
+Resultado busqueda
+{% endblock %}
+
+{% block titulo %}
+<h1> RESULTADOS </h1>
+{% endblock %}
+
+
+
+{% block contenido_2 %}
+<h2 style="color:white"> Resultado de la busqueda: </h2>
+<ul>
+    {% if chefs %}
+        {% for chef in chefs %}
+            <hr>
+            <li> <u>Nombre</u>: {{ chef.nombre }} {{ chef.apellido }}</li>
+            <li> <u>Especialidad</u>: {{ chef.especialidad }}</li>
+            <li> <u>Restaurant</u>: {{ chef.restaurant }}</li>
+
+            <hr>
+
+        {% endfor %}
+    
+        {% else %}
+        <h3 style="color:red">No hay chefs con ese nombre</h3>
+
+    {% endif %}
+</ul>
+{% endblock %}

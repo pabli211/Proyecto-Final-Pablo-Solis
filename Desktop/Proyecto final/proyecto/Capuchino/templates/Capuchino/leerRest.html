@@ -1,0 +1,35 @@
+{% extends 'Capuchino/padre2.html' %}
+{% load static %}
+
+{% block edit %}
+{% static 'Capuchino/css/styles_rest.css' %}
+{% endblock%}
+
+{% block pestaña %}
+Listado Rest
+{% endblock %}
+
+{% block titulo %}
+<h1> RESULTADOS </h1>
+{% endblock %}
+
+
+
+{% block contenido_2 %}
+<h2 style="color:white"> Listado de rest </h2>
+<h3 style="color: green">{{ mensaje }}</h3>
+<ul>
+  
+    {% for rest in rests %}       
+        <hr>
+        <li> <u>Nombre</u>: {{ rest.nombre }} || <u>Direccion</u>: {{ rest.direccion }} </li>
+        <br>
+        <a class='btn btn-danger' href={% url 'eliminarRest' rest.id %}>Eliminar</a>
+        <a class='btn btn-success' href={% url 'editarRest' rest.id %}>Editar</a>        
+    {% endfor %}
+   
+
+  
+</ul>
+
+{% endblock %}

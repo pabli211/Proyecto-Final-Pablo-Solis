@@ -1,0 +1,29 @@
+{% extends 'Capuchino/padre.html' %}
+{% load static %}
+
+
+{% block edit %}
+{% static 'Capuchino/css/styles.css' %}
+{% endblock%}
+
+{% block pestaña %}
+Añadiendo_avatar
+{% endblock %}
+
+{% block titulo %}
+<a class="btn btn-secondary"> <h1>AÑADIENDO AVATAR A: {{ usuario.username }}</h1> </a>
+<h4 style="background-color: red;" align="center"> {{ mensaje }} </h4>
+{% endblock %}
+
+
+{% block contenido_2 %}
+
+    <form action="{% url 'agregarAvatar' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %} 
+        <table>
+            {{ form.as_table }}
+        </table>    
+        <input type="submit" value="Añadir">
+        
+    </form>
+{% endblock %}
+

@@ -1,0 +1,39 @@
+{% extends 'Capuchino/padre.html' %}
+{% load static %}
+
+{% block edit %}
+{% static 'Capuchino/css/styles_usuarios.css' %}
+{% endblock%}
+
+{% block pestaña %}
+Clientes
+{% endblock %}
+
+{% block titulo %}
+<a class="btn btn-secondary"> <h1> <u>BIENVENIDOS CLIENTES</u> </h1> </a>
+
+{% endblock %}
+
+{% block contenido_3 %}
+<h2 style='background-color:#1778d2;' align="center">¿Quieres contarnos sobre tu experiencia?</h2>
+{% endblock %}
+
+{% block contenido_2 %}
+<h3>HAZLO AQUI:</h3>
+<hr>
+<br>
+<form action="{% url 'cliente' %}" method="POST"> {% csrf_token %}
+
+    <table class="table borderless" style="color:white">
+        {{ form.as_table }}
+    </table>
+
+    <input type="submit" value="Guardar">
+</form>
+<br>
+<hr>
+<a class="btn btn-primary" href={% url 'buscarCliente' %} >Buscar cliente</a>
+<br>
+<hr>
+<br>
+{% endblock %}

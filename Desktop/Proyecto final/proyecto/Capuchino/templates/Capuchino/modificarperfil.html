@@ -1,0 +1,27 @@
+{% extends 'Capuchino/padre.html' %}
+{% load static %}
+
+
+{% block edit %}
+{% static 'Capuchino/css/styles.css' %}
+{% endblock%}
+
+{% block pestaña %}
+Añadiendo_avatar
+{% endblock %}
+
+{% block titulo %}
+<a class="btn btn-secondary"> <h1>BIENVENIDO/A {{ usuario.username }}</h1> </a>
+<h4 style="background-color: red;" align="center"> {{ mensaje }} </h4>
+{% endblock %}
+
+{% block contenido_3 %}
+<h1 style='background-color:#1778d2;' align="center">¿Quèdesea modificar?</h1>
+{% endblock %}
+
+{% block contenido_2 %}
+
+<a class="btn btn-primary" href={% url 'editarPerfil' %}> Modificar datos </a>
+<a class="btn btn-primary" href={% url 'agregarAvatar' %}> Modificar foto de perfil </a>
+{% endblock %}
+

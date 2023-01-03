@@ -1,0 +1,28 @@
+{% extends 'Capuchino/padre.html' %}
+{% load static %}
+
+
+{% block edit %}
+{% static 'Capuchino/css/styles.css' %}
+{% endblock%}
+
+{% block pestaña %}
+Editar_base_de_datos
+{% endblock %}
+
+{% block titulo %}
+<a class="btn btn-secondary" href={% url 'inicio' %}> <h1>INICIO</h1> </a>
+<h4 style="background-color: green;" align="center"> {{ mensaje }} </h4>
+{% endblock %}
+
+
+{% block contenido_3 %}
+<h1 style='background-color:#1778d2;' align="center">ACCESO A LA BASE DE DATOS:</h1>
+{% endblock %}
+
+{% block contenido_2 %}
+<a class="btn btn-primary" href={% url 'leerRest' %}>Restaurant</a>
+<a class="btn btn-primary" href={% url 'leerChef' %}>Chefs</a>
+<a class="btn btn-primary" href={% url 'leerReceta' %}>Recetas</a>
+<a class="btn btn-primary" href={% url 'leerCliente' %}>Clientes</a>
+{% endblock %}

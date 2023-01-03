@@ -1,0 +1,46 @@
+{% extends 'Capuchino/padre.html' %}
+{% load static %}
+
+{% block edit %}
+{% static 'Capuchino/css/styles_chefs.css' %}
+{% endblock%}
+
+
+{% block pestaña %}
+Chefs
+{% endblock %}
+
+{% block titulo %}
+<a class="btn btn-secondary"> <h1><u>BIENVENIDOS CHEFS</u></h1> </a>
+
+
+
+{% endblock %}
+
+{% block contenido_3 %}
+<h2 style='background-color:#1778d2;' align="center">¿Eres Cheff?</h2>
+{% endblock %}
+
+{% block contenido_2 %}
+
+<h3>REGISTRATE AQUI:</h3>
+<hr>
+<br>
+<form action="{% url 'cheff' %}" method="POST"> {% csrf_token %}
+
+    <table class="table borderless" style="color:white">
+        <h2 style="color:white">{{ form.as_table }}</h2>
+    </table>
+  
+
+    <input type="submit" value="Guardar">
+</form>
+<br>
+<hr>
+<a class="btn btn-primary" href={% url 'buscarChef' %} >Buscar Chef</a>
+<br>
+<hr>
+<br>
+
+
+{% endblock %}

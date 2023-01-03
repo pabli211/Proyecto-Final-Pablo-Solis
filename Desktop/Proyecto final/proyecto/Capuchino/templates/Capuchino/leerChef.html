@@ -1,0 +1,37 @@
+{% extends 'Capuchino/padre2.html' %}
+{% load static %}
+
+{% block edit %}
+{% static 'Capuchino/css/styles_chefs.css' %}
+{% endblock%}
+
+{% block pestaña %}
+Listado Chefs
+{% endblock %}
+
+{% block titulo %}
+<h1> RESULTADOS </h1>
+{% endblock %}
+
+
+
+{% block contenido_2 %}
+<h2 style="color:white"> Listado de chef </h2>
+<h3 style="color: green">{{ mensaje }}</h3>
+<ul>
+  
+    {% for chef in chefs %}       
+        <hr>
+        <li> <u>Nombre</u>: {{ chef.nombre }} {{ chef.apellido }}</li>
+        <li> <u>Especialidad</u>: {{ chef.especialidad }}</li>             
+        <li> <u>Restaurant</u>: {{ chef.restaurant }}</li>
+        <br>
+        <a class='btn btn-danger' href={% url 'eliminarChef' chef.id %}>Eliminar</a>
+        <a class='btn btn-success' href={% url 'editarChef' chef.id %}>Editar</a>
+    {% endfor %}
+   
+
+  
+</ul>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'Capuchino/padre.html' %}
+{% load static %}
+
+
+{% block edit %}
+{% static 'Capuchino/css/styles.css' %}
+{% endblock%}
+
+{% block pestaña %}
+Register
+{% endblock %}
+
+{% block titulo %}
+<a class="btn btn-secondary"> <h1>Registrate mas abajo!!!</h1> </a>
+{% endblock %}
+
+
+{% block contenido_3 %}
+<h5 style="color: red; background-color: rgba(181, 122, 34, 0.913);" > {{ mensaje }} </h5>
+{% endblock %}
+
+
+{% block contenido_2 %}
+
+    <form action="{% url 'register' %}" method="POST"> {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>    
+        <input type="submit" value="Crear">
+        
+    </form>
+{% endblock %}
+
